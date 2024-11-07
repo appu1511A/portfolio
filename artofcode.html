@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Art of Code: Where Creativity Meets Technology</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2d3436;
+            --secondary-color: #6c5ce7;
+            --accent-color: #00cec9;
+            --background-color: #ffffff;
+            --text-color: #2d3436;
+            --code-background: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .blog-header {
+            position: relative;
+            height: 600px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('coding-art-header.jpg') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        .header-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .header-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .meta-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+        }
+
+        .meta-info span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin: 40px 0 20px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin: 30px 0 15px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .highlight-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .code-snippet {
+            background: var(--code-background);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            position: relative;
+            overflow-x: auto;
+        }
+
+        .code-snippet pre {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .code-snippet::before {
+            content: '// Creative Code Example';
+            display: block;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            padding: 20px;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        blockquote {
+            border-left: 5px solid var(--accent-color);
+            padding: 20px;
+            margin: 30px 0;
+            background: var(--code-background);
+            font-style: italic;
+        }
+
+        .social-share {
+            display: flex;
+            gap: 15px;
+            margin-top: 50px;
+            justify-content: center;
+        }
+
+        .share-btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .share-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .share-btn.facebook { background: #3b5998; }
+        .share-btn.twitter { background: #1da1f2; }
+        .share-btn.linkedin { background: #0077b5; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .image-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .social-share {
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background-color: #1a1a1a;
+                --text-color: #ffffff;
+                --code-background: #2d2d2d;
+            }
+
+            .highlight-box {
+                background: linear-gradient(135deg, #4834d4, #686de0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="blog-header">
+        <div class="header-content">
+            <h1>The Art of Code: Where Creativity Meets Technology</h1>
+            <div class="meta-info">
+                <span class="author"><i class="fas fa-user"></i> By Aparajita Priyadarshini Patra</span>
+                <span class="date"><i class="fas fa-calendar-alt"></i> Published on May 20, 2024</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <article class="article-content">
+            <img src="codeartfront.jpeg" alt="Creative Coding Illustration" class="feature-image" style="width: 100%; border-radius: 15px; margin-bottom: 30px;">
+
+            <p>When most people think of coding, they imagine endless lines of technical syntax and logical problem-solving. However, programming is as much an art form as it is a technical skill. In this post, we'll explore how creativity and technology intertwine in the world of coding.</p>
+
+            <blockquote>
+                "Code is poetry written for both humans and machines to understand."
+            </blockquote>
+
+            <h2>The Creative Process in Coding</h2>
+            <p>Just like an artist starting with a blank canvas, developers begin with an empty file. The process of writing code involves making countless creative decisions about:</p>
+            <ul>
+                <li>Architecture and structure</li>
+                <li>Problem-solving approaches</li>
+                <li>User experience design</li>
+                <li>Code aesthetics and readability</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h3>Did You Know?</h3>
+                <p>The term "Creative Coding" refers to using code to create something expressive rather than functional - like digital art, music, or interactive installations.</p>
+            </div>
+
+            <h2>Code as an Artistic Medium</h2>
+            <p>Let's look at a simple example of how code can create visual art:</p>
+
+            <div class="code-snippet">
+                <pre>
+function generateArt(canvas) {
+    for(let i = 0; i < 100; i++) {
+        let x = Math.random() * canvas.width;
+        let y = Math.random() * canvas.height;
+        let size = Math.random() * 50;
+        drawCircle(x, y, size);
+    }
+}
+                </pre>
+            </div>
+
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="generative1.jpeg" alt="Generative Art Example 1">
+                    <div class="gallery-overlay">Generative Art Example 1</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="generative2.jpeg" alt="Generative Art Example 2">
+                    <div class="gallery-overlay">Generative Art Example 2</div>
+                </div>
+            </div>
+
+            <h2>The Intersection of Logic and Creativity</h2>
+            <p>Programming requires a unique blend of logical thinking and creative problem-solving. Here's how these seemingly opposite skills come together:</p>
+
+            <h3>1. Problem-Solving Through Creative Thinking</h3>
+            <p>When faced with a complex programming challenge, developers often need to think outside the box. Sometimes the most elegant solution comes from an unexpected perspective.</p>
+
+            <h3>2. Design Patterns as Artistic Templates</h3>
+            <p>Like how artists use composition rules, programmers use design patterns. These patterns are not rigid rules but flexible guidelines that can be creatively applied.</p>
+
+            <h3>3. The Beauty of Clean Code</h3>
+            <p>Writing clean, well-structured code is an art form in itself. It requires careful consideration of naming, organization, and architecture - similar to how a writer crafts their prose.</p>
+
+            <div class="highlight-box">
+                <h3>Creative Coding Resources</h3>
+                <ul>
+                    <li>P5.js - A creative coding library for artists</li>
+                    <li>Processing - A flexible software sketchbook</li>
+                    <li>Three.js - 3D graphics in the browser</li>
+                </ul>
+            </div>
+
+            <h2>Future of Creative Coding</h2>
+            <p>As technology evolves, the boundaries between art and code continue to blur. We're seeing this in:</p>
+            <ul>
+                <li>Generative Art</li>
+                <li>Interactive Installations</li>
+                <li>AI-Created Artwork</li>
+                <li>Virtual Reality Experiences</li>
+            </ul>
+
+            <p>The fusion of creativity and technology opens up endless possibilities for expression and innovation. Whether you're a developer looking to inject more creativity into your code, or an artist interested in exploring technology, remember that code is simply another medium for creative expression.</p>
+        </article>
+
+    </div>
+
+    
+</body>
+</html>

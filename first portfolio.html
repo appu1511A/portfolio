@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Your First Portfolio: Lessons Learned</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --accent-color: #e74c3c;
+            --background-color: #ecf0f1;
+            --text-color: #34495e;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .blog-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('portfolio-collage.jpg') center/cover;
+            opacity: 0.1;
+            mix-blend-mode: overlay;
+        }
+
+        /* Lessons Section */
+        .lessons-section {
+            padding: 60px 0;
+        }
+
+        .lesson-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .lesson-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .lesson-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-right: 15px;
+        }
+
+        /* Tips Section */
+        .tips-section {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            padding: 60px 0;
+            margin: 60px 0;
+            border-radius: 20px;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .tip-card {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease;
+        }
+
+        .tip-card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Resources Section */
+        .resources-section {
+            padding: 60px 0;
+        }
+
+        .resource-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .resource-item {
+            background: var(--card-bg);
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .resource-item:hover {
+            transform: translateX(10px);
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .resource-icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+
+        /* Call to Action */
+        .cta-section {
+            background: var(--accent-color);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            border-radius: 20px;
+            margin: 60px 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: white;
+            color: var(--accent-color);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="blog-header">
+        <div class="portfolio-overlay"></div>
+        <div class="header-content">
+            <h1>Building Your First Portfolio: Lessons Learned</h1>
+            <div class="meta-info">
+                <span><i class="fas fa-user"></i> By Aparajita Priyadarshini Patra</span>
+                <span><i class="fas fa-calendar"></i> July 10, 2024</span>
+                <span><i class="fas fa-clock"></i> 15 min read</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="lessons-section">
+            <h2>Key Lessons from Building My First Portfolio</h2>
+            <div class="lesson-card">
+                <div class="lesson-header">
+                    <i class="fas fa-palette lesson-icon"></i>
+                    <h3>Design Matters</h3>
+                </div>
+                <p>I learned that a clean, professional design is crucial. It's not just about showcasing your work; it's about presenting it in a way that's visually appealing and easy to navigate.</p>
+            </div>
+            <div class="lesson-card">
+                <div class="lesson-header">
+                    <i class="fas fa-mobile-alt lesson-icon"></i>
+                    <h3>Responsive is Non-Negotiable</h3>
+                </div>
+                <p>Ensuring my portfolio looked great on all devices was challenging but essential. I realized that many potential employers or clients might view my work on their phones or tablets.</p>
+            </div>
+            <div class="lesson-card">
+                <div class="lesson-header">
+                    <i class="fas fa-code lesson-icon"></i>
+                    <h3>Showcase Your Code</h3>
+                </div>
+                <p>Including code snippets and explanations of my projects helped demonstrate my skills and thought process, making my portfolio more engaging.</p>
+            </div>
+        </section>
+
+        <section class="tips-section">
+            <h2>Tips for Creating an Impressive Portfolio</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4>Keep It Simple</h4>
+                    <p>A clutter-free design allows your work to shine without distractions.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>Highlight Your Best Work</h4>
+                    <p>Choose projects that showcase your skills and align with the type of work you want to pursue.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>Update Regularly</h4>
+                    <p>Keep your portfolio fresh by adding new projects and removing outdated ones.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="resources-section">
+            <h2>Helpful Resources</h2>
+            <ul class="resource-list">
+                <li class="resource-item">
+                    <i class="fas fa-book resource-icon"></i>
+                    <span>Web Design for Beginners - A comprehensive guide to web design principles.</span>
+                </li>
+                <li class="resource-item">
+                    <i class="fas fa-video resource-icon"></i>
+                    <span>Responsive Web Design Course - Learn how to make your portfolio mobile-friendly.</span>
+                </li>
+                <li class="resource-item">
+                    <i class="fas fa-tools resource-icon"></i>
+                    <span>GitHub - A platform to showcase your code and collaborate with others.</span>
+                </li>
+            </ul>
+        </section>
+
+        <section class="cta-section">
+            <h2>Ready to Build Your Portfolio?</h2>
+            <p>Don't wait any longer! Start creating a portfolio that reflects your skills and passion. Let's connect and share our journeys!</p>
+            <a href="https://www.linkedin.com/in/aparajita-priyadarshini-patra-95187b236/" class="cta-button">Get Started</a>
+        </section>
+    </div>
+
+    <footer class="blog-footer">
+        <p>&copy; 2024 Building Your First Portfolio. All rights reserved.</p>
+    </footer>
+</body>
+</html>

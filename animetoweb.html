@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Anime Fan to Web Dev</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ff4757;
+            --secondary-color: #5352ed;
+            --accent-color: #ffa502;
+            --background-color: #f1f2f6;
+            --text-color: #2f3542;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .blog-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .anime-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('anime-collage.jpg') center/cover;
+            opacity: 0.1;
+            mix-blend-mode: overlay;
+        }
+
+        /* Journey Section */
+        .journey-section {
+            padding: 60px 0;
+        }
+
+        .journey-timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px 0;
+        }
+
+        .journey-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: var(--secondary-color);
+        }
+
+        .journey-milestone {
+            position: relative;
+            margin-bottom: 60px;
+        }
+
+        .journey-milestone:nth-child(even) {
+            margin-left: 50%;
+        }
+
+        .milestone-content {
+            position: relative;
+            width: calc(50% - 40px);
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .journey-milestone:nth-child(even) .milestone-content {
+            left: 40px;
+        }
+
+        .milestone-content:hover {
+            transform: translateY(-5px);
+        }
+
+        .milestone-icon {
+            position: absolute;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .journey-milestone:nth-child(odd) .milestone-icon {
+            right: -60px;
+        }
+
+        .journey-milestone:nth-child(even) .milestone-icon {
+            left: -20px;
+        }
+
+        .parallels-section {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            padding: 60px 0;
+            margin: 60px 0;
+            border-radius: 20px;
+        }
+
+        .parallels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .parallel-card {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease;
+        }
+
+        .parallel-card:hover {
+            transform: scale(1.05);
+        }
+
+      
+        .skills-section {
+            padding: 60px 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* Call to Action */
+        .cta-section {
+            background: var(--primary-color);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            border-radius: 20px;
+            margin: 60px 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: white;
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--accent-color);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+       
+        @media (max-width: 768px) {
+            .journey-timeline::before {
+                left: 20px;
+            }
+            .journey-milestone {
+                margin-left: 40px !important;
+            }
+            .milestone-content {
+                width: calc(100% - 60px);
+            }
+            .milestone-icon {
+                left: -40px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="blog-header">
+        <div class="anime-overlay"></div>
+         <div class="header-content">
+            <h1>From Anime Fan to Web Dev</h1>
+            <div class="meta-info">
+                <span><i class="fas fa-user"></i> By Aparajita priyadarshini patra</span>
+                <span><i class="fas fa-calendar"></i> June 15, 2024</span>
+                <span><i class="fas fa-clock"></i> 12 min read</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="journey-section">
+            <h2>My Journey from Anime to Code</h2>
+            <p>As an avid anime fan, I found inspiration in the stories and characters that sparked my interest in technology. Here’s how I transitioned from watching anime to developing websites.</p>
+            <div class="journey-timeline">
+                <div class="journey-milestone">
+                    <div class="milestone-icon"><i class="fas fa-video"></i></div>
+                    <div class="milestone-content">
+                        <h3>Month 1: Discovering Coding</h3>
+                        <p>My journey began with a simple curiosity about how anime websites were created. I started learning HTML and CSS.</p>
+                    </div>
+                </div>
+                <div class="journey-milestone">
+                    <div class="milestone-icon"><i class="fas fa-code"></i></div>
+                    <div class="milestone-content">
+                        <h3>Month 2: Diving into JavaScript</h3>
+                        <p>JavaScript became my tool for creating interactive elements, much like the dynamic scenes in my favorite anime.</p>
+                    </div>
+                </div>
+                <div class="journey-milestone">
+                    <div class="milestone-icon"><i class="fas fa-project-diagram"></i></div>
+                    <div class="milestone-content">
+                        <h3>Month 3: Building My First Anime Site</h3>
+                        <p>I created a fan site dedicated to my favorite series, combining my love for anime with my new coding skills.</p>
+                    </div>
+                </div>
+                <div class="journey-milestone">
+                    <div class="milestone-icon"><i class="fas fa-rocket"></i></div>
+                    <div class="milestone-content">
+                        <h3>Month 4: Exploring Frameworks</h3>
+                        <p>Learning frameworks like React allowed me to build more complex applications, enhancing my web development skills.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="parallels-section">
+            <h2>Parallels Between Anime and Coding</h2>
+            <p>Both anime and coding require creativity, storytelling, and problem-solving. Here are some parallels I discovered:</p>
+            <div class="parallels-grid">
+                <div class="parallel-card">
+                    <h4>Character Development</h4>
+                    <p>Just like characters evolve, so do coding skills. Each project is a new chapter in my growth.</p>
+                </div>
+                <div class="parallel-card">
+                    <h4>Plot Twists</h4>
+                    <p>Debugging is like a plot twist; it challenges you to think differently and find solutions.</p>
+                </div>
+                <div class="parallel-card">
+                    <h4>World Building</h4>
+                    <p>Creating a website is akin to world-building in anime; it requires imagination and structure.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills-section">
+            <h2>Skills Gained Along the Way</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-html5"></i></div>
+                    <h4>HTML</h4>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-css3-alt"></i></div>
+                    <h4>CSS</h4>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-js"></i></div>
+                    <h4>JavaScript</h4>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-react"></i></div>
+                    <h4>React</h4>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+        
+            <h2>Join Me on This Journey!</h2>
+            <p>If you're passionate about anime and coding, let's connect! Share your experiences and let's grow together in this exciting field.</p>
+            <a href="https://www.linkedin.com/in/aparajita-priyadarshini-patra-95187b236/" target="_blank" rel="noopener noreferrer"" class="cta-button">Get in Touch</a>
+        </section>
+    </div>
+
+    <footer class="blog-footer">
+        <p>&copy; 2024 From Anime Fan to Web Dev. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning to Code: My Journey as a Beginner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2d3436;
+            --secondary-color: #6c5ce7;
+            --accent-color: #00b894;
+            --background-color: #ffffff;
+            --text-color: #2d3436;
+            --journey-color: #f5f6fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .blog-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .code-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent 0,
+                transparent 40px,
+                rgba(255,255,255,0.1) 40px,
+                rgba(255,255,255,0.1) 80px
+            );
+        }
+
+        /* Journey Timeline */
+        .journey-timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 40px 0;
+        }
+
+        .journey-milestone {
+            display: flex;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideIn 0.5s ease forwards;
+        }
+
+        .journey-milestone:nth-child(even) {
+            flex-direction: row-reverse;
+            transform: translateX(50px);
+        }
+
+        .milestone-content {
+            flex: 1;
+            padding: 25px;
+            background: var(--journey-color);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .milestone-content:hover {
+            transform: translateY(-5px);
+        }
+
+        .milestone-date {
+            width: 150px;
+            text-align: center;
+            padding: 20px;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        /* Progress Cards */
+        .progress-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .progress-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+        }
+
+        .progress-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Lessons Learned Section */
+        .lessons-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+
+        .lessons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .lesson-card {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease;
+        }
+
+        .lesson-card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Resources Section */
+        .resources-section {
+            margin: 60px 0;
+        }
+
+        .resource-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .resource-link {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: var(--journey-color);
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .resource-link:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .resource-link i {
+            margin-right: 10px;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .journey-milestone {
+                flex-direction: column;
+            }
+            .journey-milestone:nth-child(even) {
+                flex-direction: column;
+            }
+            .milestone-date {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="blog-header">
+        <div class="code-background"></div>
+        <div class="header-content">
+            <h1>Learning to Code: My Journey as a Beginner</h1>
+            <div class="meta-info">
+                <span><i class="fas fa-user"></i> By Aparajita Priyadarshini Patra</span>
+                <span><i class="fas fa-calendar"></i> May 20, 2024</span>
+                <span><i class="fas fa-clock"></i> 10 min read</span> </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <article>
+            <h2>My Coding Journey</h2>
+            <p>Every coder has a story, and mine began with a simple curiosity about how websites are built. Here’s a glimpse into my journey as a beginner coder.</p>
+
+            <div class="journey-timeline">
+                <div class="journey-milestone">
+                    <div class="milestone-date">Month 1</div>
+                    <div class="milestone-content">
+                        <h3>Discovering HTML & CSS</h3>
+                        <p>I started with the basics of web development, learning how to structure a webpage and style it beautifully.</p>
+                    </div>
+                </div>
+                <div class="journey-milestone">
+                    <div class="milestone-date">Month 2</div>
+                    <div class="milestone-content">
+                        <h3>JavaScript Fundamentals</h3>
+                        <p>JavaScript opened up a new world of interactivity. I learned how to make my web pages dynamic and responsive.</p>
+                    </div>
+                </div>
+                <div class="journey-milestone">
+                    <div class="milestone-date">Month 3</div>
+                    <div class="milestone-content">
+                        <h3>Building My First Project</h3>
+                        <p>With my newfound skills, I created a personal portfolio website. It was a challenging yet rewarding experience!</p>
+                    </div>
+                </div>
+                <div class="journey-milestone">
+                    <div class="milestone-date">Month 4</div>
+                    <div class="milestone-content">
+                        <h3>Exploring Frameworks</h3>
+                        <p>I dived into frameworks like React and Bootstrap, which made development faster and more efficient.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Progress and Achievements</h2>
+            <div class="progress-grid">
+                <div class="progress-card">
+                    <h3>Projects Completed</h3>
+                    <p>5</p>
+                </div>
+                <div class="progress-card">
+                    <h3>Languages Learned</h3>
+                    <p>3</p>
+                </div>
+                <div class="progress-card">
+                    <h3>Hours Spent Coding</h3>
+                    <p>200+</p>
+                </div>
+            </div>
+
+            <h2>Lessons Learned</h2>
+            <div class="lessons-section">
+                <p>Throughout my journey, I’ve learned valuable lessons:</p>
+                <div class="lessons-grid">
+                    <div class="lesson-card">
+                        <h4>Consistency is Key</h4>
+                        <p>Regular practice is essential for improvement. Coding a little every day makes a big difference.</p>
+                    </div>
+                    <div class="lesson-card">
+                        <h4>Don’t Fear Failure</h4>
+                        <p>Every bug and error is a learning opportunity. Embrace challenges and learn from them.</p>
+                    </div>
+                    <div class="lesson-card">
+                        <h4>Seek Help</h4>
+                        <p>Joining coding communities and forums can provide support and guidance when you're stuck.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Resources That Helped Me</h2>
+            <div class="resources-section">
+                <p>Here are some resources that were instrumental in my learning:</p>
+                <div class="resource-links">
+                    <a href="https://www.freecodecamp.org" class="resource-link"><i class="fas fa-laptop-code"></i> FreeCodeCamp</a>
+                    <a href="https://www.codecademy.com" class="resource-link"><i class="fas fa-book"></i> Codecademy</a>
+                    <a href="https://www.w3schools.com" class="resource-link"><i class="fas fa-globe"></i> W3Schools</a>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <footer class="blog-footer">
+        <p>&copy; 2024 Learning to Code: My Journey as a Beginner. All rights reserved.</p>
+    </footer>
+</body>
+</html>
